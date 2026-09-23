@@ -1,0 +1,46 @@
+.otp-container {
+  width: 400px;
+  margin: 100px auto;
+  padding: 30px;
+  text-align: center;
+
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+
+.otp-container h2 {
+  margin-bottom: 10px;
+}
+
+.otp-text {
+  color: #666;
+  margin-bottom: 25px;
+}
+
+.otp-box-container {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.otp-box {
+  width: 50px;
+  height: 50px;
+
+  text-align: center;
+
+  font-size: 24px;
+  font-weight: 600;
+
+  border: 2px solid #ccc;
+  border-radius: 8px;
+
+  outline: none;
+
+  transition: border-color 0.2s;
+}
+
+/* When input is focused */
+.otp-box:focus {
+  border-color: #333;
+}
