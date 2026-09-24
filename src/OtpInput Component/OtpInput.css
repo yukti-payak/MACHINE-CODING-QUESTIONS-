@@ -3,13 +3,8 @@
   margin: 100px auto;
   padding: 30px;
   text-align: center;
-
   border: 1px solid #ddd;
   border-radius: 10px;
-}
-
-.otp-container h2 {
-  margin-bottom: 10px;
 }
 
 .otp-text {
@@ -36,11 +31,8 @@
   border-radius: 8px;
 
   outline: none;
-
-  transition: border-color 0.2s;
 }
 
-/* When input is focused */
 .otp-box:focus {
   border-color: #333;
 }

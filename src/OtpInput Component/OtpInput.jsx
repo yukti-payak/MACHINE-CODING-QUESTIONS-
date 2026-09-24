@@ -1,18 +1,45 @@
 import { useRef, useState } from "react";
-import "./OtpInput.css";
+import "./OTP.css";
 
 function OTP() {
   const [otp, setOtp] = useState(["", "", "", ""]);
+
+  
   const inputRefs = useRef([]);
+
 
   const handleChange = (e, index) => {
     const value = e.target.value;
+
+
     const newOtp = [...otp];
     newOtp[index] = value;
+
     setOtp(newOtp);
 
+    
     if (value && index < 3) {
       inputRefs.current[index + 1].focus();
+    }
+  };
+
+
+  const handleKeyDown = (e, index) => {
+    if (e.key === "Backspace") {
+     
+      if (otp[index]) {
+        const newOtp = [...otp];
+
+        newOtp[index] = "";
+
+        setOtp(newOtp);
+
+        return;
+      }
+
+      if (index > 0) {
+        inputRefs.current[index - 1].focus();
+      }
     }
   };
 
@@ -21,7 +48,7 @@ function OTP() {
       <h2>Enter OTP</h2>
 
       <p className="otp-text">
-        Enter the 4-digit OTP 
+        Enter the 4-digit OTP
       </p>
 
       <div className="otp-box-container">
@@ -32,10 +59,18 @@ function OTP() {
             maxLength={1}
             value={digit}
             className="otp-box"
+
             ref={(element) => {
               inputRefs.current[index] = element;
             }}
-            onChange={(e) => handleChange(e, index)}
+
+            onChange={(e) => {
+              handleChange(e, index);
+            }}
+
+            onKeyDown={(e) => {
+              handleKeyDown(e, index);
+            }}
           />
         ))}
       </div>
